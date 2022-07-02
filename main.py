@@ -6,7 +6,7 @@ clear()
 
 class tictacktoe:
 
-    a = ['-' for _ in range(9)]
+    
 
     def __init__(self):
         print("---- game started ---")
@@ -27,15 +27,13 @@ select respective place value to place your mark
             ''')
     
 
-    def reset(self):
-            self.a = ['-' for _ in range(9)]
-    
 
-    def printa(self):
+
+    def printa(a):
             for i in range(0,9,3):
                 for _ in range(i,i+3):
                     print("    ",end="")
-                    print(self.a[_], end = " ")
+                    print(a[_], end = "")
                 print("")
     
     
@@ -73,7 +71,7 @@ TIC-TACK-TOE
             exit()
         
         if(bi == 1):
-            reset()
+            a = ['-' for _ in range(9)]
             ipt = []
             p1 = False
             p2 = False
@@ -106,17 +104,20 @@ TIC-TACK-TOE
                 clear()
                 print("\n\n")
 
-                printa()
+                printa(a)
+                print('\n\n')
                 print(f"Player {turn}'s turn, enter index")
                 
                 index = int(input())
-                ipt.append(index)
+                
                 
                 while(index>8 and index<0):
                     index = int(input("Enter correct index : "))
                 
                 while(index in ipt):
                     index = int(input("Enter another index : "))
+
+                ipt.append(index)
                 
                 if(turn==1):
                     a[index] = 'X'
@@ -134,15 +135,21 @@ TIC-TACK-TOE
             if(p1):
                 clear()
                 print("\n\n----Player 1 WINS!!----")
+                print("\n\nPress enter to continue")
+                input()
             if(p2):
                 clear()
                 print("\n\n----Player 2 WINS!!----")
-            if(tries == 8):
+                print("\n\nPress enter to continue")
+                input()
+            if(tries == 9):
                 clear()
                 print("\n\n----DRAW----")
+                print("\n\nPress enter to continue")
+                input()
             
-            print("\n\nPress enter to continue")
-            input()
+            
+            clear()
             
 
     
